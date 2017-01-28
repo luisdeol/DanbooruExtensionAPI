@@ -37,4 +37,4 @@ class DanbooruScraper(Resource):
 api.add_resource(DanbooruScraper, '/api/download_images/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
