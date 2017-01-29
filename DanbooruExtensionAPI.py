@@ -5,10 +5,15 @@ import urllib.request
 import json
 import os
 import urllib.parse
+from winreg import *
+
+
 app = Flask(__name__)
 api = Api(app)
 
-path = 'C:/Users/luisdeolpy/Documents/GitHub/DanbooruScraperAPI/images/'
+
+with OpenKey(HKEY_CURRENT_USER, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders') as key:
+    path = QueryValueEx(key, '{374DE290-123F-4565-9164-39C4925E467B}')[0] + '\\images\\'
 
 
 class DanbooruScraper(Resource):
